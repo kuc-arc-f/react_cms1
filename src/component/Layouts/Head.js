@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 //
 class Head extends React.Component {
@@ -9,13 +10,14 @@ class Head extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-4">
-                            <a href="/"><p>CMS 3 edit</p></a>
+                            <a href="/"><p>ReactCMS 1</p></a>
                         </div>
                         <div className="col-sm-8">
                             <div className='menubar'>
                                 <ul className='menu text-border'>
                                     <li><a href='#post_items_box'>posts</a></li>
-                                    <li><a href='/about'>About</a></li>
+                                    <li><Link to="/about">About</Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

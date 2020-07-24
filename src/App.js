@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-//import Navbar from './component/Navbar';
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+
 import Head from './component/Layouts/Head';
 import About from './component/About';
 import Home from './component/Home';
@@ -18,9 +19,8 @@ class App extends Component {
             <Route exact path='/' component={Home}/>
             <Route path="/show/:id" component={Show} />
             <Route path='/about' component={About}/>
-
             <Route path='/test' component={Test}/>
-
+            
           </div>
         </Router>
       </div>
