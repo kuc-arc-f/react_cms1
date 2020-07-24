@@ -6,7 +6,7 @@
 
  date    : 2020/07/23
 
- update  :
+ update  : 2020/07/24
 
 ***
 ### Summary
@@ -53,6 +53,7 @@ yarn build
 ***
 ### Blog :
 
+https://note.com/knaka0209/n/n19da409058bc
 
 ***
 
