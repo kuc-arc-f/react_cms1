@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 
 //
 class TopPostsRow extends Component {
+   dispCategory(item){
+      if(item.category != null ){
+         return(
+            <span className="folder_icon_wrap mr-2">
+               <i className="fas fa-folder"></i> {item.category.name}                  
+            </span>
+         )
+      }
+   }
    render() {
       return (
       <div className="post_items_wrap">
@@ -16,16 +25,18 @@ class TopPostsRow extends Component {
             <ul className="ul_time_box">
                <li>
                   <p className="mb-0">
-                     <span>
+                     <span className="mr-2 time_icon_wrap">
                         <i className="far fa-calendar"></i>
                      </span>
                      {this.props.obj.created_at} , ID : {this.props.obj.id}
-                  </p>               
+                  </p>  
+                  {this.dispCategory(this.props.obj)}
                </li>
                
             </ul>
 
          </div>
+         <hr className="hr_ex1" />
       </div>
       )
    }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import LibCommon from '../libs/LibCommon';
 import LibCmsEdit_3 from '../libs/LibCmsEdit_3';
 import axios from 'axios'
@@ -9,7 +9,7 @@ import marked from  'marked'
 import '../css/show.css';
 
 //
-class Show extends React.Component {
+class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {data: ''}
@@ -17,33 +17,32 @@ class Show extends React.Component {
     }
     componentDidMount(){
         this.id  = this.props.match.params.id 
-//        console.log( this.id   )
+        console.log( this.id   )
         this.get_item( this.id )
     }
     get_item(id){
         var dt = LibCommon.formatDate( new Date(), "YYYY-MM-DD_hhmmss");
         axios.get('./cms.json?' + dt).then(res =>  {
             var data = res.data
-            var items = LibCommon.convert_items(data.items )
-            var item  = LibCmsEdit_3.get_show_item( items, String(id) )
-            item.content = marked(item.content)
-            this.setState({ data: item })
+//            console.log( data.page_items )   
+            var items = LibCommon.convert_items(data.page_items )
+            var item  = LibCmsEdit_3.get_page_item( items, String(id) )
+            console.log( item )                     
+           item.content = marked(item.content)
+           this.setState({ data: item })
 // console.log( item.content )
         })
     }
     get_content(){
         console.log( "#-get_content" )
-//        $("#post_item").append(this.state.data.content)
         return false
-        //return this.state.data.content
     }    
     render(){
         return(
-            <div className="container">
-                <Link to="/" className="btn btn-outline-primary mt-2">Back</Link>
-                <hr className="mt-2 mb-2" />
+            <div className="container mt-2">
                 <h1>{this.state.data.title}</h1>
                 date : {this.state.data.created_at} <br />
+                ID : {this.state.data.id} <br />
                 <hr />
                 <div id="post_item"
                 dangerouslySetInnerHTML={{ __html: this.state.data.content }} />
@@ -52,5 +51,5 @@ class Show extends React.Component {
     }
 }
 
-export default Show;
+export default Page;
 
