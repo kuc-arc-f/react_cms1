@@ -6,7 +6,7 @@ import axios from 'axios'
 import marked from  'marked'
 //import $ from  'jquery'
 
-import '../css/show.css';
+import '../css/page.css';
 
 //
 class Page extends React.Component {
@@ -40,6 +40,10 @@ class Page extends React.Component {
     render(){
         return(
             <div className="container mt-2">
+                <div className="page_head_wrap mt-2">
+                    <i className="fas fa-home"></i> > {this.state.data.title}
+                </div>
+                <hr />
                 <h1>{this.state.data.title}</h1>
                 date : {this.state.data.created_at} <br />
                 ID : {this.state.data.id} <br />

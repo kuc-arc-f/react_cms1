@@ -42,6 +42,10 @@ class Show extends React.Component {
             <div className="container">
                 <Link to="/" className="btn btn-outline-primary mt-2">Back</Link>
                 <hr className="mt-2 mb-2" />
+                <div className="show_head_wrap">
+                    <i className="fas fa-home"></i> > {this.state.data.title}
+                </div>
+                <hr />
                 <h1>{this.state.data.title}</h1>
                 date : {this.state.data.created_at} <br />
                 <hr />
